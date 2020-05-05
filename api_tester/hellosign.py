@@ -324,10 +324,10 @@ def runmain():
 
         if menu_item == "1":
 
-            print(
-                "****************************************************1 - client.get_signature_request_file START***************")
+            print("****************************************************1 - client.get_signature_request_file START***************")
 
-            current_signatureRequestID = '964146cf5afa0bbfdde817ca9d000d718706e27d'
+            # sample = 964146cf5afa0bbfdde817ca9d000d718706e27d'
+            current_signatureRequestID = input("Enter the SignatureRequestID to update that you want to download\n")
 
             whatDoIReturn = client.get_signature_request_file(
                 # current_signatureRequestID,
