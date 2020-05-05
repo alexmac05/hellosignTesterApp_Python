@@ -12,7 +12,7 @@ with open(os.path.join(HERE, "README.md")) as fid:
 
 # This call to setup() does all the work
 setup(
-    name="hellosign-pyconsole",
+    name="hellosignTesterApp_Python",
     version="1.0.0",
     description="A console app for testing the python SDK",
     long_description=README,
