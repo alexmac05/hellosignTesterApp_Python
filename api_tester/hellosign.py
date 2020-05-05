@@ -342,10 +342,12 @@ def runmain():
 
             print("****************************************************1 - client.get_signature_request_file END**********")
         elif menu_item == "2":
-            print(
-                "****************************************************2 GET signature_request - START**********************")
+            print("****************************************************2 GET signature_request - START**********************")
 
-            response = client.get_signature_request('51211b2cb66cca5ddb1c00d553f340f528262eef')
+            # test example 51211b2cb66cca5ddb1c00d553f340f528262eef
+            current_signatureRequestID = input("Enter the SignatureRequestID to update that you want to download\n")
+
+            response = client.get_signature_request(current_signatureRequestID)
 
             exploreSignatureRequestResponseObject(response)
             print(response)
