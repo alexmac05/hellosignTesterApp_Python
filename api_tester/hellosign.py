@@ -698,7 +698,9 @@ def runmain():
         elif menu_item == "17":
 
             print("***************************************17 Cancel a signature request START**********************")
-            response = client.cancel_signature_request('eaeae0fb1ca5c9f8fd0286e507cbaa3be565cfa6')
+            #https://app.hellosign.com/api/reference#cancel_incomplete_signature_request
+            # Must listen to the callback handler for this test
+            response = client.cancel_signature_request('d1d5372cbaa5e769fc64042a71d420a1ee3404ea')
 
             print(response)
             print("****************************************17 Cancel a signature request END**********************")
