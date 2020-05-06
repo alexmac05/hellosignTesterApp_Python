@@ -340,9 +340,11 @@ def runmain():
             print(whatDoIReturn)
             print(os.path.realpath(__file__))
 
-            print("****************************************************1 - client.get_signature_request_file END**********")
+            print(
+                "****************************************************1 - client.get_signature_request_file END**********")
         elif menu_item == "2":
-            print("****************************************************2 GET signature_request - START**********************")
+            print(
+                "****************************************************2 GET signature_request - START**********************")
 
             # test example 51211b2cb66cca5ddb1c00d553f340f528262eef
             current_signatureRequestID = input("Enter the SignatureRequestID to update that you want to download\n")
@@ -352,9 +354,11 @@ def runmain():
             exploreSignatureRequestResponseObject(response)
             print(response)
 
-            print("****************************************************2 GET signature_request - END**********************")
+            print(
+                "****************************************************2 GET signature_request - END**********************")
         elif menu_item == "3":
-            print("****************************************************3 - client.send_signature_request START************")
+            print(
+                "****************************************************3 - client.send_signature_request START************")
 
             # readInFile is an internal function in this file. It reads files 1000.txt if name is large otherwise 200.txt
             # 200.txt is 1000 characters.
@@ -386,7 +390,8 @@ def runmain():
             exploreSignatureRequestResponseObject(response)
             print(response)
 
-            print("****************************************************3 - client.send_signature_request END**************")
+            print(
+                "****************************************************3 - client.send_signature_request END**************")
 
         elif menu_item == "4":
             print(
@@ -418,7 +423,8 @@ def runmain():
                 "****************************************************4 - client.send_with_template NO CUSTOM FIELDS - END*****************")
 
         elif menu_item == "5":
-            print("****************************************************5 Embedded requesting - START**********************")
+            print(
+                "****************************************************5 Embedded requesting - START**********************")
 
             # Embedded Requesting - allows you to have users create and send signature requests on your site as an iFrame
 
@@ -454,9 +460,11 @@ def runmain():
     
             '''
 
-            print("****************************************************5 Embedded requesting - END**********************")
+            print(
+                "****************************************************5 Embedded requesting - END**********************")
         elif menu_item == "6":
-            print("****************************6 - Embedded Signature request with template - START**********************")
+            print(
+                "****************************6 - Embedded Signature request with template - START**********************")
 
             reallylongfromfile = readInFile('largeuuu')
             # print(reallylongfromfile)
@@ -482,7 +490,8 @@ def runmain():
             print(type(response))
             exploreSignatureRequestResponseObject(response)
 
-            print("****************************6 - Embedded Signature request with template - END**********************")
+            print(
+                "****************************6 - Embedded Signature request with template - END**********************")
         elif menu_item == "7":
 
             if len(listOfSignRequests) > 0:
@@ -495,9 +504,10 @@ def runmain():
                 print(response)
             else:
                 print("There are no signature requests left")
-        elif menu_item == 8:
+        elif menu_item == "8":
 
-            print("*************8 - Delete all unsigned documents that are out for signature - START**********************")
+            print(
+                "*************8 - Delete all unsigned documents that are out for signature - START**********************")
             print("TEST8")
             response = client.get_signature_request_list()
 
@@ -520,10 +530,12 @@ def runmain():
                     # The request is complete
                     print(mylist[1] + " Complete!")
 
-            print("*************8 - Delete all unsigned documents that are out for signature - END**********************")
+            print(
+                "*************8 - Delete all unsigned documents that are out for signature - END**********************")
         elif menu_item == "9":
 
-            print("****************************************************Delete a sign request - START**********************")
+            print(
+                "****************************************************Delete a sign request - START**********************")
             try:
                 print("hello")
                 cancelResponse = client.cancel_signature_request('98be5903de697cddbdf35b5c0c8f7dfdb37ad8b7')
@@ -535,7 +547,8 @@ def runmain():
                 print(inst)
                 print("\n")
 
-            print("****************************************************Delete a sign request - END**********************")
+            print(
+                "****************************************************Delete a sign request - END**********************")
         elif menu_item == "10":
 
             print("****************************************************Embedded Request - START**********************")
@@ -596,14 +609,15 @@ def runmain():
                 requester_email_address=fletch2_email,
                 is_for_embedded_signing=True,
                 subject='Ticket 206582',
-                files=['210338.pdf']
+                files=['nda.pdf']
                 )
 
             print("**********************12 Create embedded unclaimed draft - END**********************")
             print("A change")
         elif menu_item == "13":
 
-            print("***********************13 non embedded signature request (with Text Tags) - START**********************")
+            print(
+                "***********************13 non embedded signature request (with Text Tags) - START**********************")
             response = client.send_signature_request(
                 test_mode=True,
                 use_text_tags=True,
@@ -614,7 +628,7 @@ def runmain():
                     {'email_address': fletch_email, 'name': 'fletch'},
                     {'email_address': fletch_email, 'name': 'spike'}
                     ],
-                files=['texttag_2Signer.pdf'],
+                files=['nda.pdf'],
                 metadata={
                     'client_id': '1234',
                     'custom_text': 'NDA #9'
@@ -629,39 +643,37 @@ def runmain():
             print("***************14 embeded request with template - START**********************")
 
             signers = [{
-                "name": "TEST McTest",
-                "email_address": fletch_email,
-                "role_name": "Client"
+                "name": "Signer Name",
+                "email_address": "signer@example.com",
+                "role_name": "Signer"
                 }]
+            metadata = {
+                'account_id': '123',
+                'company_name': 'Acme Co.'
+                }
 
-            reallylongfromfile = readInFile('large')
-            print(reallylongfromfile)
-
-            response = templateDraft = client.create_embedded_unclaimed_draft_with_template(
+            templateDraft = client.create_embedded_unclaimed_draft_with_template(
                 test_mode=True,
-
                 client_id=clientID,
-                # is_for_embedded_signing=True,
-                template_ids=['34cec2bd40638137d55fa69e4d30815c9fda741a'],
-                requester_email_address=fletch_email,
-                # title='MyDraft',
-                metadata={
-                    'client_id': '1234',
-                    'custom_text': reallylongfromfile
-                    },
-                subject='Unclaimed Draft Email Subject - running test for ticket 8855018 - NON-EMBEDDED SIGNING',
-                ccs=None,
-                custom_fields=None,
-                # message='Email Message',
-                signers=signers
+                is_for_embedded_signing=True,
+                template_id='b71e165713bffb1dcd6bcb9a9d184250bb829a64',
+                requester_email_address=fletch2_email,
+                title='MyDraft',
+                subject='Unclaimed Draft Email Subject',
+                message='Email Message',
+                signers=signers,
+                signing_redirect_url='http://url.com',
+                requesting_redirect_url='http://url.com',
+                metadata=metadata
                 )
-
-            print(response)
+            url = templateDraft.claim_url
+            print(templateDraft)
             print("*************14 embedded request with template - END**********************")
 
         elif menu_item == "15":
 
-            print("****************************************************15 HIT Account info - START**********************")
+            print(
+                "****************************************************15 HIT Account info - START**********************")
 
             response = client.get_account_info()
             print(response.account_id)
@@ -726,7 +738,8 @@ def runmain():
 
         elif menu_item == "21":
 
-            print("***************************************21 Unclaimed Draft Edit and Resend- START**********************")
+            print(
+                "***************************************21 Unclaimed Draft Edit and Resend- START**********************")
 
             current_signatureRequestID = 'd347d8f9c5cc30fa0b10c0cd2168a9f2de6375a4'
             buildTheRequest = 'https://' + apikey + ':@api.hellosign.com/v3/signature_request/files/' \
@@ -737,7 +750,8 @@ def runmain():
             urlOfDocument = urlOfDocument.replace("\\", "")
             print(urlOfDocument)
 
-            print("***************************************21 Unclaimed Draft Enit and Resend - END**********************")
+            print(
+                "***************************************21 Unclaimed Draft Enit and Resend - END**********************")
             print("A change")
 
         elif menu_item == "22":
@@ -819,7 +833,8 @@ def runmain():
 
         elif menu_item == "24":
 
-            print("********Embedded signing With the template created from embedded template - START**********************")
+            print(
+                "********Embedded signing With the template created from embedded template - START**********************")
 
             response = client.send_signature_request_embedded_with_template(
                 # test_mode=True,
@@ -856,7 +871,8 @@ def runmain():
             print("*****************GET TEMPLATE - END**********************")
         elif menu_item is "26":
 
-            print("********26 - Previewing a signature request - part of embedded template walkthrough - START************")
+            print(
+                "********26 - Previewing a signature request - part of embedded template walkthrough - START************")
 
             signers = [
                 {'role_name': 'Baltar', 'email_address': fletch2_email, 'name': 'JackFirst'},
@@ -896,12 +912,15 @@ def runmain():
             print(url)
             exploreUnclaimedDraftResponseObject(templateDraft)
 
-            print("********26 - Previewing a signature request - part of embedded template walkthrough  - END*************")
+            print(
+                "********26 - Previewing a signature request - part of embedded template walkthrough  - END*************")
         elif menu_item == "27":
 
-            print("***************************27 - Generate embedded signining from template draft - START****************")
+            print(
+                "***************************27 - Generate embedded signining from template draft - START****************")
 
-            print("***************************27 - Generate embedded signing from template draft - END********************")
+            print(
+                "***************************27 - Generate embedded signing from template draft - END********************")
 
         elif menu_item == "28":
 
@@ -913,7 +932,8 @@ def runmain():
             template3_SubscriberFirst = '2345e6f4a3a03693d57413b011d9655295c90738'
             response = client.send_signature_request_with_template(
                 test_mode=True,
-                template_ids=[template1IssuerOnly, template2SubscriberOnly, template1IssuerOnly, template2SubscriberOnly,
+                template_ids=[template1IssuerOnly, template2SubscriberOnly, template1IssuerOnly,
+                              template2SubscriberOnly,
                               template3_IssuerFirst],
                 title='simple test',
                 subject='Ticket 216247 - simple test',
@@ -969,7 +989,8 @@ def runmain():
                 changeAddress = input("Enter a 1 to change this email address and a 0 to leave it as is:")
                 if changeAddress == "1":
                     updateEmailAddress = input("Enter the new email address for this signer")
-                    response = client.update_signature_request(updateSignatureRequest, x.signature_id, updateEmailAddress)
+                    response = client.update_signature_request(updateSignatureRequest, x.signature_id,
+                                                               updateEmailAddress)
 
             response = client.get_signature_request(updateSignatureRequest)
             for x in response.signatures:
@@ -1032,7 +1053,8 @@ def runmain():
         # print("34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK")
         elif menu_item is "34":
 
-            print("***34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK - START*************")
+            print(
+                "***34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK - START*************")
             print("***34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK - END********")
 
         elif menu_item is "35":
@@ -1064,7 +1086,8 @@ def runmain():
 
             print(result)
 
-            print("**********************************************35 Update signature_request -  END**********************")
+            print(
+                "**********************************************35 Update signature_request -  END**********************")
 
         elif menu_item is "36":
 
@@ -1096,8 +1119,6 @@ def runmain():
             exploreSignatureRequestResponseObject(response)
 
             print("*************37 OAuth embedded call part one - END**********************")
-
-
 
         elif menu_item is "38":
 
@@ -1360,8 +1381,11 @@ def runmain():
         elif menu_item is "50":
 
             print("***************50 getTemplate **********************")
+            # sample for testing cab3aad3f35b529b5af0bc07d77888aa0d3f4bde
+            templateInput = input("Enter the template id that you want to report regarding")
 
-            response = client.get_template('cab3aad3f35b529b5af0bc07d77888aa0d3f4bde')
+            response = client.get_template(templateInput)
+
             print(response)
             print(exploreTemplateResponseObject(response))
 
@@ -1504,6 +1528,7 @@ def runmain():
 
         elif menu_item is "111":
             continue
+
 
 if __name__ == "__main__":
     runmain()
