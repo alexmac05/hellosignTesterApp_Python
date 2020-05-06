@@ -708,7 +708,7 @@ def runmain():
 
             print("***************************************18 Get template info**********************")
 
-            response = client.get_template('7bb5048da903fc696cc17598af06b2e161a90b84')
+            response = client.get_template('b71e165713bffb1dcd6bcb9a9d184250bb829a6418')
 
             print(response)
             exploreTemplateResponseObject(response)
