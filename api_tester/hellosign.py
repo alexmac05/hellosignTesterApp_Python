@@ -242,7 +242,7 @@ def runmain():
         print("17: Cancel a signature request")
 
         print("18: Get template info ")
-        print("19 - Create the same URL over and over")
+        print("19 - TO BE IMPLEMENTED")
         print("20 - oAuth a basic signature request")
         print("21 - Unclaimed Draft Edit and Resend")
         print("22 - Requests - blah")
@@ -716,10 +716,9 @@ def runmain():
             print("****************************************18 Get template info*****************")
 
         elif menu_item == "19":
-            print("***************************************19 create URL over and over PART 2**********************")
-            response = client.get_embedded_object('c32fa8a3f4c56c1b64b493b9b938a899')
-            print(response)
-            print("***************************************9 create URL over and over PART 2**********************")
+            print("***************************************19 TO BE IMPLEMENTED**********************")
+
+            print("***************************************19 TO BE IMPLEMENTED**********************")
 
         elif menu_item == "20":
             print("************************************20 Make an oAUTH call************************************")
