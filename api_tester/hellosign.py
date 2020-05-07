@@ -243,7 +243,7 @@ def runmain():
 
         print("18: Get template info ")
         print("19 - TO BE IMPLEMENTED")
-        print("20 - oAuth a basic signature request")
+        print("20 - TO BE IMPLEMENTED")
         print("21 - Unclaimed Draft Edit and Resend")
         print("22 - Requests - blah")
 
@@ -721,26 +721,14 @@ def runmain():
             print("***************************************19 TO BE IMPLEMENTED**********************")
 
         elif menu_item == "20":
-            print("************************************20 Make an oAUTH call************************************")
+            print("************************************20 TO BE IMPLEMENTED ************************************")
 
-            response = client_OAUTH.send_signature_request(
-                test_mode=True,
-                title='Sent Through OAUTH',
-                subject='OAUTH',
-                message='Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
-                signers=[
-                    {'email_address': fletch_email, 'name': 'Jack', 'order': 0},
-                    {'email_address': fletch_email, 'name': 'Jill', 'order': 1}
-                    ],
-                cc_email_addresses=['lawyer@example.com', 'lawyer2@example.com'],
-                files=['NDA.pdf']
-                )
-            print(response)
+            print("************************************20 TO BE IMPLEMENTED ************************************")
 
         elif menu_item == "21":
 
             print(
-                "***************************************21 Unclaimed Draft Edit and Resend- START**********************")
+                "***************************************20 TO BE IMPLEMENTED START**********************")
 
             current_signatureRequestID = 'd347d8f9c5cc30fa0b10c0cd2168a9f2de6375a4'
             buildTheRequest = 'https://' + apikey + ':@api.hellosign.com/v3/signature_request/files/' \
@@ -787,7 +775,7 @@ def runmain():
             print(
                 "*********23 Embedded Template Walkthrough STEP 1 - Create a template draft (create embedded draft) - START**********************")
 
-            files = ["124.doc"]
+            files = ["nda.pdf"]
             # signer_roles = [
             #    {'name': 'Baltar', 'order': 1},
             #    {'name': 'Madame President', 'order': 2},
@@ -862,18 +850,16 @@ def runmain():
         elif menu_item == "25":
 
             print("*****************GET TEMPLATE - START**********************")
-            # templateID = creds
-            templateIDClient = creds['TemplateID']
 
-            response = client.get_template(templateIDClient)
+
+            response = client.get_template('b71e165713bffb1dcd6bcb9a9d184250bb829a64')
 
             exploreTemplateResponseObject(response)
 
             print("*****************GET TEMPLATE - END**********************")
-        elif menu_item is "26":
+        elif menu_item == "26":
 
-            print(
-                "********26 - Previewing a signature request - part of embedded template walkthrough - START************")
+            print( "********26 - Previewing a signature request - part of embedded template walkthrough - START************")
 
             signers = [
                 {'role_name': 'Baltar', 'email_address': fletch2_email, 'name': 'JackFirst'},
@@ -913,8 +899,7 @@ def runmain():
             print(url)
             exploreUnclaimedDraftResponseObject(templateDraft)
 
-            print(
-                "********26 - Previewing a signature request - part of embedded template walkthrough  - END*************")
+            print("********26 - Previewing a signature request - part of embedded template walkthrough  - END*************")
         elif menu_item == "27":
 
             print(
