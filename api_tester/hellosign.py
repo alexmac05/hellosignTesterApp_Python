@@ -828,7 +828,7 @@ def runmain():
             response = client.send_signature_request_embedded_with_template(
                 # test_mode=True,
                 client_id=clientID,
-                template_id='0a0bdc720d159c6e493af2468d2ad43277a16e42',
+                template_id='0c0f704c28001e583413a824a43784176b1d0cd1',
                 # subject='My First embedded signature request with a template',
                 # message='Awesome, right?',
                 signers=[
@@ -871,11 +871,7 @@ def runmain():
                 'company_name': 'Acme Co.'
                 }
 
-            ccs = [
-                {'role_name': 'Deck Chief', 'email_address': fletch2_email},
-                {'role_name': 'Admiral', 'email_address': fletch2_email},
-                {'role_name': 'Starbuck', 'email_address': fletch2_email}
-                ]
+
 
             custom_fields = [{'mymerge': 'George'}]
 
@@ -883,7 +879,7 @@ def runmain():
                 # test_mode=True,
                 client_id=clientID,
                 is_for_embedded_signing=True,
-                template_id='63ebdec9730b1fa01f6483c34365e542df6cecfa',  # _templateIDHardCode,
+                template_id='29963830f417f01d1b99202c0029fe21348649d8',  # _templateIDHardCode,
                 requester_email_address=fletch_email,
                 title='MyDraft',
                 subject='WHAT IS HAPPENING HERE ????????',
@@ -892,7 +888,6 @@ def runmain():
                 # custom_fields=custom_fields,
                 signing_redirect_url='http://url.com',
                 requesting_redirect_url='http://url.com',
-                ccs=ccs,
                 metadata=metadata
                 )
             url = templateDraft.claim_url
