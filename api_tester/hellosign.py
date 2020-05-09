@@ -277,7 +277,7 @@ def runmain():
         print("37 - OAuth embedded call part one")
         print("38 - OAUTH embedded call part two")
 
-        print("39 - OAuth nonembedded signature call with template")
+        print("39 - ")
         print("40 - hardcode getting an embedded temp URL")
         print("41 - Search fields")
 
@@ -1032,13 +1032,13 @@ def runmain():
 
 
         # print("34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK")
-        elif menu_item is "34":
+        elif menu_item == "34":
 
             print(
                 "***34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK - START*************")
             print("***34 - OLD6 - Embedded Signature request with template BUT WITH REQUESTS NOT SDK - END********")
 
-        elif menu_item is "35":
+        elif menu_item == "35":
 
             print(
                 "****************************************************35 Update signature_request - START**********************")
@@ -1070,7 +1070,7 @@ def runmain():
             print(
                 "**********************************************35 Update signature_request -  END**********************")
 
-        elif menu_item is "36":
+        elif menu_item == "36":
 
             # Drafts have document id: 65a7eafb50cae3eabd4a52e6727d42ec39749f9a
 
@@ -1078,7 +1078,7 @@ def runmain():
             client.delete_template('65a7eafb50cae3eabd4a52e6727d42ec39749f9a')
             print("***36 - Delete a template draft END********")
 
-        elif menu_item is 37:
+        elif menu_item == 37:
 
             print("*************37 OAuth embedded call part one - START**********************")
 
@@ -1101,18 +1101,24 @@ def runmain():
 
             print("*************37 OAuth embedded call part one - END**********************")
 
-        elif menu_item is "38":
+        elif menu_item == "38":
 
             print("************38 OAuth embedded call part two - START**********************")
 
             print("************38 OAuth embedded call part two - END**********************")
 
-        elif menu_item is "40":
+        elif menu_item == "39":
+
+            print("************39- START**********************")
+
+            print("************39 - END**********************")
+
+        elif menu_item == "40":
             print("************40 Hardcode an embedded 2nd call  START**********************")
 
             client.get_embedded_object('d43657ea2a2a6d4fcd7f069036eee8dd')
             print("************40  Hardcode an embedded 2nd call END**********************")
-        elif menu_item is "41":
+        elif menu_item == "41":
             print("*************41 Search fields*******************************************")
 
             # does the Python SDK pass these queryies?
@@ -1125,7 +1131,7 @@ def runmain():
 
             print("*************41 Search fields ******************************************")
 
-        elif menu_item is "42":
+        elif menu_item == "42":
             print(
                 "***********************42 - Basic Template with Custom Fields non-embedded    ******************************")
 
@@ -1142,7 +1148,7 @@ def runmain():
 
             print(
                 "***********************42 - Basic Template with Custom Fields non-embedded ********************************")
-        elif menu_item is "43":
+        elif menu_item == "43":
             print(
                 "****************************************************43 - client.send_with_template CUSTOM FIELDS - START***************")
 
@@ -1169,7 +1175,7 @@ def runmain():
             print(
                 "****************************************************43 - client.send_with_template  CUSTOM FIELDS - END*****************")
 
-        elif menu_item is "44":
+        elif menu_item == "44":
 
             print("*************44 open up an embedded teste site - START**********************")
 
@@ -1185,7 +1191,7 @@ def runmain():
             print("************44 open up an embedded test site END**********************")
             print("45 - Update the Callback URL for the app you are using")
 
-        elif menu_item is "45":
+        elif menu_item == "45":
 
             print("*************45 Update the callback url for the app you are using  START**********************")
 
@@ -1211,7 +1217,7 @@ def runmain():
             print("************45 Update the callback url for the app you are using**********************")
             print("46 - Non-embedded signature request passing Client ID")
 
-        elif menu_item is "46":
+        elif menu_item == "46":
 
             print("*************46 - Non-embedded signature request passing Client ID  START**********************")
 
@@ -1251,7 +1257,7 @@ def runmain():
             print(result)
 
             print("************46 - Non-embedded signature request passing Client ID END**********************")
-        elif menu_item is "47":
+        elif menu_item == "47":
 
             print("*************47 - Get a temporary URL from a signature ID  START**********************")
 
@@ -1259,7 +1265,7 @@ def runmain():
             print(response)
 
             print("************47 - Get a temporary URL from a signature ID END**********************")
-        elif menu_item is "48":
+        elif menu_item == "48":
 
             print("*************48 - Signer Reassignment non embedded START**********************")
 
@@ -1297,7 +1303,7 @@ def runmain():
 
             print("************48 Signer Reassignment non embedded  END**********************")
 
-        elif menu_item is "49":
+        elif menu_item == "49":
             print("****************************************************X - START**********************")
 
             buildTheRequest = 'https://' + apikey + \
@@ -1359,7 +1365,7 @@ def runmain():
 
             print("****************************************************X - END**********************")
 
-        elif menu_item is "50":
+        elif menu_item == "50":
 
             print("***************50 getTemplate **********************")
             # sample for testing cab3aad3f35b529b5af0bc07d77888aa0d3f4bde
@@ -1372,7 +1378,7 @@ def runmain():
 
             print("***************50 getTemplate - END**********************")
             print("A change")
-        elif menu_item is 55:
+        elif menu_item == 55:
 
             print("***************55 - Retrieving the oAuth Token  **********************")
 
@@ -1392,7 +1398,7 @@ def runmain():
             # print(response)
 
             print("***************55  - Retrieving the oAuth Token **********************")
-        elif menu_item is "56":
+        elif menu_item == "56":
 
             print("***************56 verify an existing account **********************")
             response = client.verify_account(fletch_email)
@@ -1401,9 +1407,9 @@ def runmain():
 
             response = client.verify_account('gargabge@helalkjsdf.com')
             print(response)
-            print("***************56 verify an existing account - END**********************")
+            print("***************56 verify an ex==ting account - END**********************")
 
-        elif menu_item is "57":
+        elif menu_item == "57":
 
             print("***************57 Create an account  **********************")
 
@@ -1416,13 +1422,13 @@ def runmain():
             print(response)
 
             print("***************50 Create an account - END**********************")
-        elif menu_item is "58":
+        elif menu_item == "58":
 
             print("***************58 token refresh **********************")
 
             print("***************50 token refresh END**********************")
 
-        elif menu_item is "59":
+        elif menu_item == "59":
 
             print("***************59 - signer group BEGIN **********************")
 
@@ -1448,7 +1454,7 @@ def runmain():
             stringData = r.text
             print(type(stringData))
             print("***************59 - signer group END**********************")
-        elif menu_item is "60":
+        elif menu_item == "60":
 
             print("***************60 Requests Send embedded with custom fields on text tags  **********************")
 
@@ -1507,7 +1513,7 @@ def runmain():
                 print("Did you claim the URL for this signature request?")
 
 
-        elif menu_item is "111":
+        elif menu_item == "111":
             continue
 
 
